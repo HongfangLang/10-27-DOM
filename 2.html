@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var div = document.createElement('div');
+		div.innerHTML = '这是一个div';
+		div.className = 'show';
+		div.id = 'box';
+		div.style.cssText = 'width:100px;height:100px;background: red;';
+		div.onclick = function(){
+			alert(1);
+		}
+		console.log(div);
+		document.body.appendChild(div);
+	};
+	
+</script>
+</html>

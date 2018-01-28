@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+p{
+	margin:0;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+textarea{
+	display: block;;
+	resize: none;
+	overflow: auto;
+}
+#wrap{
+	width:400px;
+}
+#text{
+	width:300px;
+	heigh:100px;
+	display: block;
+	margin:0 auto;
+}
+#btn{
+	width:300px;
+	height:30px;
+	display: block;
+	margin:10px auto;
+}
+.list{
+	border-top: 2px solid #000;
+}
+.list li{
+	height:0;
+	overflow: hidden;
+}
+.list odd{
+	background: #ccc;
+}
+.list even{
+	background: #f1f1f1;
+}
+.list .focus{
+	background: #000;
+	color:#fff;
+}
+.list p{
+	font:16px/30px '宋体';
+	padding: 5px;
+	word-break: break-all;
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<textarea id="text"></textarea>
+	<input type="button" id = 'btn' value="提交留言" >
+	<ul class="list">
+		<!-- <li>
+			<p></p>
+		</li> -->
+	</ul>
+</div>
+<script type="text/javascript">
+(function(){
+	var text = document.querySelector('#text');
+	var btn = document.querySelector('#btn');
+	var list = document.querySelector('.list');
+	var num = 0;
+	var color = ['odd','even'];
+	btn.onclick = function(){
+		var inner = text.value;
+		if(inner.trim() == ''){
+			alert('请输入内容')；
+			return;
+		}
+		var li = document.createElement('li');
+		var p = document.createElement('p');
+		var className = color[num%color.length];
+		num++;
+		li.className = className;
+		p.innerHTML = inner;
+		li.onmouseover = function(){
+			this.className = 'focus';
+		};
+		li.onmouseout = function(){
+			this.className = className;
+		};
+		
+	}
+})();
+</script>
+</body>
+</html>
